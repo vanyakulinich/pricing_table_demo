@@ -5,11 +5,16 @@ body {
     'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+  overflow-x: hidden;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 * {
   box-sizing: border-box;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
 }

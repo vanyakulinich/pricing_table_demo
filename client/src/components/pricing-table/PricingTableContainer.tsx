@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { IPricingTable } from '../../interfaces'
 import httpService from '../../services/http.service'
 import PricingTable from './PricingTable'
-
+import LoadingSpinner from '../common/loadingSpinner'
 /**
  * NOTE: we don't use Redux for this demo, since it actually doesn't make sence.
  * IN case of expending this demo, api call and table storing will be removed to redux store
@@ -24,9 +24,14 @@ const PricingTableContainer = () => {
       }
     })()
   }, [])
-
-  console.log({ pricingTable })
-  return <PricingTable />
+  return (
+    <>
+      {!pricingTable.length && !isError && <LoadingSpinner />}
+      {!!pricingTable.length && <PricingTable tableData={pricingTable} />}
+      {/* Simple error handling for user */}
+      {isError && <div>Sorry, error occured...</div>}
+    </>
+  )
 }
 
 export default PricingTableContainer
