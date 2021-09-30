@@ -17,7 +17,7 @@ const PricingTable: React.FC<Props> = ({ tableData }) => {
     <table className='table-wrapper'>
       <tbody>
         {tableData.map((row, idx) => {
-          const isGroup = !row.Starter && !row.Advanced && !row.Enterprise
+          const isGroup: boolean = !row.Starter && !row.Advanced && !row.Enterprise
           return (
             <tr className={idx ? 'table-row' : 'table-row headers'} key={generateMemoizedKey()}>
               <td className={isGroup ? 'table-cell tiers group_headers' : 'table-cell tiers'}>{row.Tiers}</td>

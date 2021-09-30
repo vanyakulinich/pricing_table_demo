@@ -12,6 +12,7 @@ export class PricingTableService {
 
   async _parseTable(): Promise<IPricingTable> {
     const results: IPricingTableRow[] = [];
+    // Note: during parsing csv, collect rows to groups for further sorting inside groups and in between groups
     const sortedGroups: Array<Array<IPricingTableRow>> = [];
     let currentSortedGroupIdx = null;
 
