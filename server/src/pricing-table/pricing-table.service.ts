@@ -17,7 +17,7 @@ export class PricingTableService {
 
     return new Promise((resolve) => {
       fs.createReadStream(
-        path.resolve(__dirname, '..', 'assets', 'pricing_table.csv'),
+        path.resolve(__dirname, '..', '..', 'assets', 'pricing_table.csv'),
       )
         .pipe(csv(['Tiers', 'Starter', 'Advanced', 'Enterprise']))
         .on('data', (data: IPricingTableRow) => {
